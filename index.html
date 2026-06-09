@@ -395,6 +395,13 @@ h1,h2,h3,h4,.lead,.eyebrow,.nm,.cap h4,.it b,.mvg .v,.metric .l,.hero-stats .l,.
 .flagship::after,.pcard::after{content:"→";position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;z-index:5;box-shadow:0 6px 16px -4px rgba(255,90,60,.6);transition:.25s;pointer-events:none}
 .flagship:hover::after,.pcard:hover::after{transform:scale(1.12)}
 .flagship:hover,.pcard:hover{border-color:var(--coral)}
+
+/* 인증 그리드: 마지막 줄 단독 카드도 가운데 정렬되어 보기 좋게 */
+.cert-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.cert{flex:0 1 calc(20% - 15px);max-width:calc(20% - 15px)}
+@media(max-width:1000px){.cert{flex-basis:calc(33.333% - 12px);max-width:calc(33.333% - 12px)}}
+@media(max-width:620px){.cert{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}}
+
 </style>
 </head>
 <body>
