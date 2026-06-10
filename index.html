@@ -416,7 +416,7 @@ body[data-plang="intl"] .flagship.intl-only{display:grid}
 body[data-plang="intl"] .pcard.intl-only{display:block}
 
 /* 일본어/영어는 keep-all 해제(공백 없는 일본어 가로 넘침 방지), 한국어만 어절 단위 */
-html:not([lang="ko"]) *{word-break:normal}
+html:not([lang="ko"]) *{word-break:normal!important;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
