@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>메디칼리서치 — 새 주소로 이동합니다</title>
+<link rel="canonical" href="https://medicalresearch.co.kr/">
+<meta http-equiv="refresh" content="0; url=https://medicalresearch.co.kr/">
+<meta name="robots" content="noindex, follow">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       padding:24px;background:#f4f6f7;color:#12191b;
+       font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+  @media (prefers-color-scheme:dark){body{background:#0b0f10;color:#eef3f2}}
+  .box{max-width:420px;text-align:center;line-height:1.7}
+  h1{font-size:19px;margin:0 0 10px;letter-spacing:-.02em}
+  p{margin:0 0 18px;font-size:14px;opacity:.8}
+  a{display:inline-block;padding:12px 22px;border-radius:8px;background:#2a78d6;color:#fff;
+    text-decoration:none;font-weight:650;font-size:14.5px}
+</style>
+<script>
+  /* 옛 주소로 들어온 사람을 새 주소의 같은 위치로 보낸다.
+     예: /medicalresearch/faq.html → https://medicalresearch.co.kr/faq.html
+     (2026-08-06 Cloudflare 로 이전. 회사소개서 QR·명함·기존 메일에 옛 주소가 남아 있어 계속 유지한다.) */
+  (function () {
+    if (location.hostname === "kalee9692.github.io") {
+      var p = location.pathname.replace(/^\/medicalresearch/, "") || "/";
+      if (p === "/index.html") p = "/";
+      location.replace("https://medicalresearch.co.kr" + p + location.search + location.hash);
+    }
+  })();
+</script>
+</head>
+<body>
+  <div class="box">
+    <h1>메디칼리서치 홈페이지가 새 주소로 옮겼습니다</h1>
+    <p>잠시 후 자동으로 이동합니다.<br>이동하지 않으면 아래 버튼을 눌러 주세요.</p>
+    <a href="https://medicalresearch.co.kr/">medicalresearch.co.kr 로 이동</a>
+  </div>
+</body>
+</html>
