@@ -2,57 +2,73 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>메디칼리서치 | Medical Research</title>
-<meta name="description" content="메디칼리서치 공식 온라인몰과 회사소개로 이동하는 안내 페이지입니다.">
+<meta name="description" content="메디칼리서치 공식몰 · 회사소개 · 회사소개서 PDF">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f4f7fa">
 <style>
-  :root{
-    --bg:#f3f6f8; --card:#ffffff; --ink:#12191b; --sub:#5b676c; --line:#e1e7ea;
-    --blue:#1f6fd1; --blue-soft:#e8f1fc; --navy:#0f2a4a; --navy-soft:#e7ecf3;
-  }
+  :root{--bg:#f4f7fa;--ink:#0e1a24;--sub:#5d6b75;--line:#e3e9ef;--blue:#1d6fe0;--navy:#0d2440;--gold:#c8922a}
   *{box-sizing:border-box}
   html,body{margin:0}
-  body{min-height:100vh;background:var(--bg);color:var(--ink);
-       font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-       -webkit-font-smoothing:antialiased;word-break:keep-all;display:flex;flex-direction:column;align-items:center;
-       padding:40px 16px 28px}
-  .wrap{width:100%;max-width:440px;flex:1;display:flex;flex-direction:column}
-  header{text-align:center;margin-bottom:28px}
-  header img{width:112px;height:auto;display:block;margin:0 auto 16px}
-  header h1{font-size:22px;margin:0 0 6px;letter-spacing:-.02em}
-  header p{margin:0;font-size:14px;color:var(--sub);line-height:1.6}
+  body{min-height:100svh;background:var(--bg);color:var(--ink);word-break:keep-all;
+       font-family:"Pretendard",system-ui,-apple-system,"Apple SD Gothic Neo","Hiragino Sans","Malgun Gothic","Yu Gothic",sans-serif;
+       -webkit-font-smoothing:antialiased;display:flex;justify-content:center;
+       padding:max(16px,env(safe-area-inset-top)) 16px max(20px,env(safe-area-inset-bottom))}
+  .wrap{width:100%;max-width:460px;display:flex;flex-direction:column}
+
+  /* 머리: 로고 왼쪽 · 언어 선택 오른쪽(크게) */
+  header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 20px}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0}
+  .brand img{width:40px;height:auto;flex:none}
+  .brand b{display:block;font-size:16.5px;letter-spacing:-.03em;line-height:1.2;white-space:nowrap}
+  .brand small{display:block;font-size:10.5px;color:var(--sub);letter-spacing:.1em;white-space:nowrap}
+  .lang{flex:none;display:flex;padding:4px;border-radius:14px;background:#fff;border:1.5px solid #cdd8e3;
+        box-shadow:0 2px 8px rgba(13,36,64,.08)}
+  .lang button{appearance:none;border:0;background:none;font:inherit;cursor:pointer;
+        min-width:46px;height:40px;padding:0 9px;border-radius:10px;font-size:15px;font-weight:800;color:#6b7984;letter-spacing:-.01em}
+  .lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+  .lang button:focus-visible{outline:3px solid var(--blue);outline-offset:1px}
+
+  h1{font-size:25px;line-height:1.35;letter-spacing:-.04em;margin:0 2px 4px}
+  .lead{margin:0 2px 18px;font-size:14px;color:var(--sub)}
   nav{display:flex;flex-direction:column;gap:14px}
-  .go{display:flex;align-items:center;gap:16px;padding:20px 18px;border-radius:16px;
-      background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none;
-      box-shadow:0 1px 2px rgba(15,42,74,.04),0 6px 18px rgba(15,42,74,.06);
-      transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
-  .go:hover{transform:translateY(-2px);border-color:#c9d6e2;box-shadow:0 2px 4px rgba(15,42,74,.06),0 12px 28px rgba(15,42,74,.10)}
-  .go:active{transform:translateY(0)}
-  .go:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-  .ic{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
-  .ic svg{width:26px;height:26px}
-  .shop .ic{background:var(--blue-soft);color:var(--blue)}
-  .corp .ic{background:var(--navy-soft);color:var(--navy)}
-  .tx{flex:1;min-width:0}
-  .tx b{display:block;font-size:17.5px;letter-spacing:-.02em;margin-bottom:3px}
-  .tx span{display:block;font-size:13.5px;color:var(--sub);line-height:1.5}
-  .tx em{display:block;font-style:normal;font-size:12px;color:#8a959a;margin-top:4px;letter-spacing:.02em}
-  .ar{flex:none;color:#a3adb2}
-  .ar svg{width:20px;height:20px;display:block}
-  footer{margin-top:32px;text-align:center;font-size:12.5px;color:#7b878c;line-height:1.8}
+
+  .card{display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);background:#fff;
+        box-shadow:0 10px 28px rgba(13,36,64,.12);border:1px solid var(--line);transition:transform .15s ease,box-shadow .15s ease}
+  .card:active{transform:scale(.985)}
+  .card:hover{box-shadow:0 14px 34px rgba(13,36,64,.2)}
+  .card:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .pic{position:relative;display:block;aspect-ratio:16/7.4;background:#dfe7ef center/cover no-repeat}
+  .shop .pic{background-image:url(shop.jpg);background-position:50% 62%}
+  .corp .pic{background-image:url(corp.jpg);background-position:70% 55%}
+  .num{position:absolute;top:12px;left:12px;font-size:12.5px;font-weight:800;padding:5px 11px;border-radius:99px;
+       background:rgba(255,255,255,.95);color:var(--navy)}
+  .bar{display:flex;align-items:center;gap:14px;padding:16px 18px 18px}
+  .t{flex:1;min-width:0}
+  .t b{display:block;font-size:23px;letter-spacing:-.04em;line-height:1.25}
+  .t i{display:block;font-style:normal;font-size:14.5px;color:var(--sub);margin-top:3px}
+  .go{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff}
+  .shop .go{background:var(--blue)}
+  .go svg{width:22px;height:22px}
+
+  /* 3번: 회사소개서 PDF — 사진 없이 한 줄 카드 */
+  .pdf .bar{padding:16px 18px}
+  .doc{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#fdf3e1;color:var(--gold);position:relative}
+  .doc svg{width:26px;height:26px}
+  .doc em{position:absolute;bottom:-4px;right:-6px;font-style:normal;font-size:9.5px;font-weight:900;letter-spacing:.04em;
+          background:#d9412e;color:#fff;padding:2px 5px;border-radius:5px}
+  .pdf .t b{font-size:19px}
+  .pdf .t i{font-size:13.5px}
+  .pdf .go{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+  .pdf .num{position:static;flex:none;align-self:flex-start;margin-top:2px;display:none}
+
+  footer{margin-top:20px;text-align:center;font-size:12.5px;color:#7a8791;line-height:1.8}
   footer a{color:inherit;text-decoration:none}
-  @media (prefers-color-scheme:dark){
-    :root{--bg:#0d1214;--card:#161d20;--ink:#eef3f4;--sub:#a5b0b4;--line:#263035;
-          --blue-soft:#14273d;--navy-soft:#1c2633}
-    .corp .ic{color:#9fb8d8}
-    header img{filter:brightness(0) invert(1);opacity:.92}
-  }
 </style>
 <script>
   /* 옛 주소의 세부 경로·#표시로 들어온 사람은 새 주소의 같은 위치로 보낸다.
-     QR(주소 그대로)로 들어온 사람에게는 아래 선택 화면을 보여 준다. (2026-10-20 변경) */
+     QR(주소 그대로)로 들어온 사람에게는 아래 선택 화면을 보여 준다. (2026-10-20) */
   (function () {
     if (location.hostname !== "kalee9692.github.io") return;
     var p = location.pathname.replace(/^\/medicalresearch/, "") || "/";
@@ -66,41 +82,80 @@
 <body>
   <div class="wrap">
     <header>
-      <img src="logo.png" alt="메디칼리서치 로고" width="112" height="94">
-      <h1>메디칼리서치</h1>
-      <p>보시고 싶은 곳을 선택해 주세요<br><span style="font-size:12.5px">Please choose where you'd like to go</span></p>
+      <div class="brand">
+        <img src="logo.png" alt="" width="40" height="33">
+        <div><b data-t="name">메디칼리서치</b><small>MEDICAL RESEARCH</small></div>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ko" aria-pressed="true">한국어</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+      </div>
     </header>
 
-    <nav aria-label="이동할 곳 선택">
-      <a class="go shop" href="https://medicalresearch.co.kr/">
-        <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>
-        </span>
-        <span class="tx">
-          <b>공식 온라인몰</b>
-          <span>제품 보기·바로 구매</span>
-          <em>OFFICIAL STORE</em>
-        </span>
-        <span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-      </a>
+    <h1 data-t="h1">어디로 갈까요?</h1>
+    <p class="lead" data-t="lead">아래에서 하나를 눌러 주세요</p>
 
-      <a class="go corp" href="https://medicalresearch.co.kr/#corp=story">
-        <span class="ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-5h6v5"/><path d="M8 9h.01M12 9h.01M16 9h.01M8 12h.01M12 12h.01M16 12h.01"/></svg>
+    <nav>
+      <a class="card shop" id="l-shop" href="https://medicalresearch.co.kr/">
+        <span class="pic"><span class="num">1</span></span>
+        <span class="bar"><span class="t"><b data-t="shop">메디칼리서치 공식몰</b><i data-t="shop_s">제품 구경하고 바로 구매</i></span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="card corp" id="l-corp" href="https://medicalresearch.co.kr/#corp=story">
+        <span class="pic"><span class="num">2</span></span>
+        <span class="bar"><span class="t"><b data-t="corp">회사소개</b><i data-t="corp_s">메디칼리서치는 어떤 회사?</i></span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="card pdf" id="l-pdf" href="Medical-Research_Company-Profile_KO.pdf" download>
+        <span class="bar">
+          <span class="doc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><em>PDF</em></span>
+          <span class="t"><b data-t="pdf">회사소개서 다운로드</b><i data-t="pdf_s">한국어 PDF · 약 2MB</i></span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></span>
         </span>
-        <span class="tx">
-          <b>회사소개</b>
-          <span>회사·브랜드 이야기</span>
-          <em>COMPANY PROFILE</em>
-        </span>
-        <span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </a>
     </nav>
 
     <footer>
-      <a href="tel:031-991-7988">031-991-7988</a> · <a href="mailto:biz@medicalresearch.co.kr">biz@medicalresearch.co.kr</a><br>
-      © MEDICAL RESEARCH
+      <a href="tel:+82-31-991-7988">031-991-7988</a> · <a href="mailto:biz@medicalresearch.co.kr">biz@medicalresearch.co.kr</a>
     </footer>
   </div>
+
+<script>
+(function(){
+  var T={
+    ko:{name:'메디칼리서치',h1:'어디로 갈까요?',lead:'아래에서 하나를 눌러 주세요',
+        shop:'메디칼리서치 공식몰',shop_s:'제품 구경하고 바로 구매',corp:'회사소개',corp_s:'메디칼리서치는 어떤 회사?',
+        pdf:'회사소개서 다운로드',pdf_s:'한국어 PDF · 약 2MB'},
+    en:{name:'Medical Research',h1:'Where would you like to go?',lead:'Tap one of the options below',
+        shop:'Official Online Store',shop_s:'Browse and shop our products',corp:'Company Profile',corp_s:'Get to know Medical Research',
+        pdf:'Company Profile PDF',pdf_s:'English PDF · approx. 2MB'},
+    ja:{name:'Medical Research',h1:'どちらへ進みますか？',lead:'下のいずれかをタップしてください',
+        shop:'公式オンラインストア',shop_s:'商品を見て、そのまま購入',corp:'会社紹介',corp_s:'メディカルリサーチについて',
+        pdf:'会社案内をダウンロード',pdf_s:'英語版PDF · 約2MB'}
+  };
+  var L={
+    ko:{shop:'https://medicalresearch.co.kr/',corp:'https://medicalresearch.co.kr/#corp=story',pdf:'Medical-Research_Company-Profile_KO.pdf'},
+    en:{shop:'https://medicalresearch.co.kr/shop2/',corp:'https://medicalresearch.co.kr/brand/index.html',pdf:'Medical-Research_Company-Profile_EN.pdf'},
+    ja:{shop:'https://medicalresearch.co.kr/shop3/',corp:'https://medicalresearch.co.kr/brand/index.html',pdf:'Medical-Research_Company-Profile_EN.pdf'}
+  };
+  var titles={ko:'메디칼리서치 | Medical Research',en:'Medical Research',ja:'メディカルリサーチ | Medical Research'};
+  function set(l){
+    if(!T[l]) l='ko';
+    document.querySelectorAll('[data-t]').forEach(function(el){el.textContent=T[l][el.getAttribute('data-t')];});
+    document.getElementById('l-shop').href=L[l].shop;
+    document.getElementById('l-corp').href=L[l].corp;
+    document.getElementById('l-pdf').href=L[l].pdf;
+    document.documentElement.lang=l; document.title=titles[l];
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false');});
+    try{localStorage.setItem('mrqr_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-lang'));});});
+  var s=null; try{s=localStorage.getItem('mrqr_lang');}catch(e){}
+  if(!s){var n=((navigator.languages&&navigator.languages[0])||navigator.language||'ko').toLowerCase();
+         s=n.indexOf('ko')===0?'ko':(n.indexOf('ja')===0?'ja':'en');}
+  set(s);
+})();
+</script>
 </body>
 </html>
