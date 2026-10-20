@@ -3,40 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>메디칼리서치 — 새 주소로 이동합니다</title>
-<link rel="canonical" href="https://medicalresearch.co.kr/">
-<meta http-equiv="refresh" content="0; url=https://medicalresearch.co.kr/">
+<title>메디칼리서치 | Medical Research</title>
+<meta name="description" content="메디칼리서치 공식 온라인몰과 회사소개로 이동하는 안내 페이지입니다.">
 <meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#ffffff">
 <style>
-  :root{color-scheme:light dark}
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       padding:24px;background:#f4f6f7;color:#12191b;
-       font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
-  @media (prefers-color-scheme:dark){body{background:#0b0f10;color:#eef3f2}}
-  .box{max-width:420px;text-align:center;line-height:1.7}
-  h1{font-size:19px;margin:0 0 10px;letter-spacing:-.02em}
-  p{margin:0 0 18px;font-size:14px;opacity:.8}
-  a{display:inline-block;padding:12px 22px;border-radius:8px;background:#2a78d6;color:#fff;
-    text-decoration:none;font-weight:650;font-size:14.5px}
+  :root{
+    --bg:#f3f6f8; --card:#ffffff; --ink:#12191b; --sub:#5b676c; --line:#e1e7ea;
+    --blue:#1f6fd1; --blue-soft:#e8f1fc; --navy:#0f2a4a; --navy-soft:#e7ecf3;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{min-height:100vh;background:var(--bg);color:var(--ink);
+       font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+       -webkit-font-smoothing:antialiased;word-break:keep-all;display:flex;flex-direction:column;align-items:center;
+       padding:40px 16px 28px}
+  .wrap{width:100%;max-width:440px;flex:1;display:flex;flex-direction:column}
+  header{text-align:center;margin-bottom:28px}
+  header img{width:112px;height:auto;display:block;margin:0 auto 16px}
+  header h1{font-size:22px;margin:0 0 6px;letter-spacing:-.02em}
+  header p{margin:0;font-size:14px;color:var(--sub);line-height:1.6}
+  nav{display:flex;flex-direction:column;gap:14px}
+  .go{display:flex;align-items:center;gap:16px;padding:20px 18px;border-radius:16px;
+      background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none;
+      box-shadow:0 1px 2px rgba(15,42,74,.04),0 6px 18px rgba(15,42,74,.06);
+      transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+  .go:hover{transform:translateY(-2px);border-color:#c9d6e2;box-shadow:0 2px 4px rgba(15,42,74,.06),0 12px 28px rgba(15,42,74,.10)}
+  .go:active{transform:translateY(0)}
+  .go:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .ic{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+  .ic svg{width:26px;height:26px}
+  .shop .ic{background:var(--blue-soft);color:var(--blue)}
+  .corp .ic{background:var(--navy-soft);color:var(--navy)}
+  .tx{flex:1;min-width:0}
+  .tx b{display:block;font-size:17.5px;letter-spacing:-.02em;margin-bottom:3px}
+  .tx span{display:block;font-size:13.5px;color:var(--sub);line-height:1.5}
+  .tx em{display:block;font-style:normal;font-size:12px;color:#8a959a;margin-top:4px;letter-spacing:.02em}
+  .ar{flex:none;color:#a3adb2}
+  .ar svg{width:20px;height:20px;display:block}
+  footer{margin-top:32px;text-align:center;font-size:12.5px;color:#7b878c;line-height:1.8}
+  footer a{color:inherit;text-decoration:none}
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0d1214;--card:#161d20;--ink:#eef3f4;--sub:#a5b0b4;--line:#263035;
+          --blue-soft:#14273d;--navy-soft:#1c2633}
+    .corp .ic{color:#9fb8d8}
+    header img{filter:brightness(0) invert(1);opacity:.92}
+  }
 </style>
 <script>
-  /* 옛 주소로 들어온 사람을 새 주소의 같은 위치로 보낸다.
-     예: /medicalresearch/faq.html → https://medicalresearch.co.kr/faq.html
-     (2026-08-06 Cloudflare 로 이전. 회사소개서 QR·명함·기존 메일에 옛 주소가 남아 있어 계속 유지한다.) */
+  /* 옛 주소의 세부 경로·#표시로 들어온 사람은 새 주소의 같은 위치로 보낸다.
+     QR(주소 그대로)로 들어온 사람에게는 아래 선택 화면을 보여 준다. (2026-10-20 변경) */
   (function () {
-    if (location.hostname === "kalee9692.github.io") {
-      var p = location.pathname.replace(/^\/medicalresearch/, "") || "/";
-      if (p === "/index.html") p = "/";
+    if (location.hostname !== "kalee9692.github.io") return;
+    var p = location.pathname.replace(/^\/medicalresearch/, "") || "/";
+    if (p === "/index.html") p = "/";
+    if (p !== "/" || location.search || location.hash) {
       location.replace("https://medicalresearch.co.kr" + p + location.search + location.hash);
     }
   })();
 </script>
 </head>
 <body>
-  <div class="box">
-    <h1>메디칼리서치 홈페이지가 새 주소로 옮겼습니다</h1>
-    <p>잠시 후 자동으로 이동합니다.<br>이동하지 않으면 아래 버튼을 눌러 주세요.</p>
-    <a href="https://medicalresearch.co.kr/">medicalresearch.co.kr 로 이동</a>
+  <div class="wrap">
+    <header>
+      <img src="logo.png" alt="메디칼리서치 로고" width="112" height="94">
+      <h1>메디칼리서치</h1>
+      <p>보시고 싶은 곳을 선택해 주세요<br><span style="font-size:12.5px">Please choose where you'd like to go</span></p>
+    </header>
+
+    <nav aria-label="이동할 곳 선택">
+      <a class="go shop" href="https://medicalresearch.co.kr/">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>
+        </span>
+        <span class="tx">
+          <b>공식 온라인몰</b>
+          <span>제품 보기·바로 구매</span>
+          <em>OFFICIAL STORE</em>
+        </span>
+        <span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="go corp" href="https://medicalresearch.co.kr/#corp=story">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-5h6v5"/><path d="M8 9h.01M12 9h.01M16 9h.01M8 12h.01M12 12h.01M16 12h.01"/></svg>
+        </span>
+        <span class="tx">
+          <b>회사소개</b>
+          <span>회사·브랜드 이야기</span>
+          <em>COMPANY PROFILE</em>
+        </span>
+        <span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+    <footer>
+      <a href="tel:031-991-7988">031-991-7988</a> · <a href="mailto:biz@medicalresearch.co.kr">biz@medicalresearch.co.kr</a><br>
+      © MEDICAL RESEARCH
+    </footer>
   </div>
 </body>
 </html>
